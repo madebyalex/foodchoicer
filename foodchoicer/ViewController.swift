@@ -10,20 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let burgerTime = 15
-    let hotdogTime = 12
-    let soupTime = 30
-    let pizzaTime = 25
-    let tacoTime = 40
-    let cocktailTime = 5
+    let mealTimes = ["burger": 300, "hotdog": 420, "soup": 1200, "pizza": 900, "taco": 1500, "cocktail": 720]
     
-    let mealTimes = ["burger": 15, "hotdog": 12, "soup": 30, "pizza": 25, "taco": 40, "cocktail": 5]
+    var secondsRemaining = 60
+    var timer = Timer()
     
     @IBAction func mealSelected(_ sender: UIButton) {
+        
+        timer.invalidate()
+        
         let meal = sender.currentTitle!.lowercased()
-        print(mealTimes[meal]!)
+        secondsRemaining = mealTimes[meal]!
+        
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
+    @objc func updateTimer() {
+        if secondsRemaining > 0 {
+            print("Remaining \(secondsRemaining) seconds")
+            secondsRemaining -= 1
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
