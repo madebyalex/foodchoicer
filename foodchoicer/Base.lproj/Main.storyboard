@@ -27,10 +27,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="wV5-pc-OSe">
-                                        <rect key="frame" x="0.0" y="132" width="414" height="632"/>
+                                        <rect key="frame" x="0.0" y="112" width="414" height="672"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YTL-1v-hEe">
-                                                <rect key="frame" x="57" y="0.0" width="300" height="200"/>
+                                                <rect key="frame" x="57" y="0.0" width="300" height="240"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey! 👋" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="2Yu-Za-cRH" userLabel="headline">
                                                         <rect key="frame" x="20" y="0.0" width="260" height="88"/>
@@ -42,30 +42,39 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What would you like for a breakfast today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGL-QR-hzx" userLabel="description">
-                                                        <rect key="frame" x="0.0" y="88" width="300" height="68.5"/>
+                                                        <rect key="frame" x="0.0" y="88" width="300" height="140"/>
                                                         <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="25"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uba-8A-LBh">
-                                                        <rect key="frame" x="30" y="156.5" width="240" height="43.5"/>
+                                                        <rect key="frame" x="30" y="228" width="240" height="12"/>
                                                         <subviews>
-                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="s9Y-rA-0yM">
-                                                                <rect key="frame" x="20" y="20" width="200" height="2.5"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <color key="tintColor" red="0.0" green="0.66666666669999997" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <progressView opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="s9Y-rA-0yM" userLabel="progressBar">
+                                                                <rect key="frame" x="20" y="10" width="200" height="5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="200" id="0eK-tM-zXe"/>
+                                                                    <constraint firstAttribute="height" constant="4" id="lTQ-Wi-pDU"/>
+                                                                </constraints>
+                                                                <color key="progressTintColor" red="0.0" green="0.66666666669999997" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="trackTintColor" systemColor="secondarySystemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </progressView>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="s9Y-rA-0yM" firstAttribute="centerX" secondItem="uba-8A-LBh" secondAttribute="centerX" id="EzM-Kf-QmX"/>
+                                                            <constraint firstItem="s9Y-rA-0yM" firstAttribute="centerY" secondItem="uba-8A-LBh" secondAttribute="bottom" id="Sw7-Oc-Uy6"/>
+                                                            <constraint firstAttribute="height" constant="12" id="lqk-5T-Yj0"/>
+                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="GFc-7b-OMJ"/>
+                                                    <constraint firstAttribute="height" constant="240" id="GFc-7b-OMJ"/>
                                                     <constraint firstItem="2Yu-Za-cRH" firstAttribute="leading" secondItem="YTL-1v-hEe" secondAttribute="leading" constant="20" id="LIn-BG-rxO"/>
                                                     <constraint firstAttribute="trailing" secondItem="2Yu-Za-cRH" secondAttribute="trailing" constant="20" id="Mpc-rh-zkw"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XLH-9v-mr6">
-                                                <rect key="frame" x="79" y="280" width="256" height="352"/>
+                                                <rect key="frame" x="79" y="320" width="256" height="352"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="ZwJ-14-ps1">
                                                         <rect key="frame" x="0.0" y="0.0" width="256" height="104"/>
@@ -244,6 +253,7 @@
                     <connections>
                         <outlet property="descriptionLbl" destination="dGL-QR-hzx" id="79z-sc-6dl"/>
                         <outlet property="headline" destination="2Yu-Za-cRH" id="FuO-fX-7YA"/>
+                        <outlet property="progressBar" destination="s9Y-rA-0yM" id="eXr-q1-Mfv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

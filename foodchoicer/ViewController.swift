@@ -11,23 +11,26 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet var headline: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
-    
+    @IBOutlet weak var progressBar: UIProgressView!
     
     
 //    let mealTimes = ["burger": 300, "hotdog": 420, "soup": 1200, "pizza": 900, "taco": 1500, "cocktail": 720]
     
     let mealTimes = ["burger": 3, "hotdog": 4, "soup": 5, "pizza": 7, "taco": 6, "cocktail": 8]
     
-    var secondsRemaining = 60
+    var meal = ""
     var timer = Timer()
+    var totalTime = 10
+    var secondsPassed = 0
     
     @IBAction func mealSelected(_ sender: UIButton) {
         
         timer.invalidate()
         headline.text = "Cooking... ⏱"
-        
-        let meal = sender.currentTitle!.lowercased()
-        secondsRemaining = mealTimes[meal]!
+        progressBar.alpha = 1
+            
+        meal = sender.currentTitle!.lowercased()
+        totalTime = mealTimes[meal]!
         
         descriptionLbl.text = "Your order is accepted."
         
@@ -35,19 +38,26 @@ class ViewController: UIViewController {
     }
     
     @objc func updateTimer() {
-        if secondsRemaining > 0 {
-//            print("Remaining \(secondsRemaining) seconds")
-            descriptionLbl.text = "Please wait \(secondsRemaining) seconds"
-            secondsRemaining -= 1
+        if secondsPassed < totalTime {
+            var timePercent: Float = 1
+            
+            descriptionLbl.text = "Please wait \(totalTime - secondsPassed) seconds"
+            
+            timePercent = Float(secondsPassed) / Float(totalTime)
+            progressBar.setProgress(Float(timePercent), animated: true)
+            
+            secondsPassed += 1
+            
         } else {
             headline.text = "Yay! 🙌"
-            descriptionLbl.text = "Enjoy your meal."
+            descriptionLbl.text = "Enjoy your \(meal)."
+            progressBar.setProgress(1, animated: true)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        progressBar.layer.cornerRadius = 4
     }
 
 
