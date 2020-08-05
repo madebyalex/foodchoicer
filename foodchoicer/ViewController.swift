@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     
-    
 //    let mealTimes = ["burger": 300, "hotdog": 420, "soup": 1200, "pizza": 900, "taco": 1500, "cocktail": 720]
     
     let mealTimes = ["burger": 3, "hotdog": 4, "soup": 5, "pizza": 7, "taco": 6, "cocktail": 8]
@@ -36,8 +35,7 @@ class ViewController: UIViewController {
         
         headline.text = "Cooking \(meal)... ⏱"
         descriptionLbl.text = "Your order is accepted."
-//        descriptionLbl.text = "Please wait \(totalTime) seconds"
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             self.progressBar.alpha = 1
         }
         
@@ -56,8 +54,8 @@ class ViewController: UIViewController {
             timePercent = Float(secondsPassed) / Float(totalTime)
             progressBar.setProgress(Float(timePercent), animated: true)
             
-            print(timePercent)
-            print(secondsPassed)
+//            print(timePercent)
+//            print(secondsPassed)
             
         } else {
             headline.text = "Yay! 🙌"
@@ -72,7 +70,6 @@ class ViewController: UIViewController {
                 self.timer.invalidate()
                 self.progressBar.alpha = 0
             }
-            
         }
         
         if isReady == true {
