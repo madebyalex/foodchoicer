@@ -22,17 +22,24 @@ class ViewController: UIViewController {
     var timer = Timer()
     var totalTime = 10
     var secondsPassed = 0
+    var isReady = false
     
     @IBAction func mealSelected(_ sender: UIButton) {
         
         timer.invalidate()
-        headline.text = "Cooking... ⏱"
-        progressBar.alpha = 1
+        progressBar.setProgress(0, animated: true)
+        progressBar.alpha = 0
+        isReady = false
             
         meal = sender.currentTitle!.lowercased()
         totalTime = mealTimes[meal]!
         
+        headline.text = "Cooking \(meal)... ⏱"
         descriptionLbl.text = "Your order is accepted."
+//        descriptionLbl.text = "Please wait \(totalTime) seconds"
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.progressBar.alpha = 1
+        }
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
@@ -41,17 +48,36 @@ class ViewController: UIViewController {
         if secondsPassed < totalTime {
             var timePercent: Float = 1
             
-            descriptionLbl.text = "Please wait \(totalTime - secondsPassed) seconds"
+            if isReady == false {
+              descriptionLbl.text = "Please wait \(totalTime - secondsPassed) seconds"
+            }
+            secondsPassed += 1
             
             timePercent = Float(secondsPassed) / Float(totalTime)
             progressBar.setProgress(Float(timePercent), animated: true)
             
-            secondsPassed += 1
+            print(timePercent)
+            print(secondsPassed)
             
         } else {
             headline.text = "Yay! 🙌"
             descriptionLbl.text = "Enjoy your \(meal)."
-            progressBar.setProgress(1, animated: true)
+            isReady = true
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                self.progressBar.setProgress(1, animated: true)
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.timer.invalidate()
+                self.progressBar.alpha = 0
+            }
+            
+        }
+        
+        if isReady == true {
+            secondsPassed = 0
+            return
         }
     }
     

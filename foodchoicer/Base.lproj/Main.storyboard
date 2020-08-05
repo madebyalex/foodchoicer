@@ -27,28 +27,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="wV5-pc-OSe">
-                                        <rect key="frame" x="0.0" y="112" width="414" height="672"/>
+                                        <rect key="frame" x="0.0" y="144.5" width="414" height="607.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YTL-1v-hEe">
-                                                <rect key="frame" x="57" y="0.0" width="300" height="240"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YTL-1v-hEe">
+                                                <rect key="frame" x="57" y="0.0" width="300" height="175.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey! 👋" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="2Yu-Za-cRH" userLabel="headline">
-                                                        <rect key="frame" x="20" y="0.0" width="260" height="88"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="88" id="rap-6R-gQG"/>
-                                                        </constraints>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey! 👋" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="2Yu-Za-cRH" userLabel="headline">
+                                                        <rect key="frame" x="10" y="0.0" width="280" height="55"/>
                                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="40"/>
                                                         <color key="textColor" red="0.15540914456484436" green="0.20277155017123291" blue="0.18988418132344023" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What would you like for a breakfast today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGL-QR-hzx" userLabel="description">
-                                                        <rect key="frame" x="0.0" y="88" width="300" height="140"/>
+                                                        <rect key="frame" x="0.0" y="75" width="300" height="68.5"/>
                                                         <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="25"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uba-8A-LBh">
-                                                        <rect key="frame" x="30" y="228" width="240" height="12"/>
+                                                        <rect key="frame" x="30" y="163.5" width="240" height="12"/>
                                                         <subviews>
                                                             <progressView opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="s9Y-rA-0yM" userLabel="progressBar">
                                                                 <rect key="frame" x="20" y="10" width="200" height="5"/>
@@ -68,13 +65,12 @@
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="240" id="GFc-7b-OMJ"/>
-                                                    <constraint firstItem="2Yu-Za-cRH" firstAttribute="leading" secondItem="YTL-1v-hEe" secondAttribute="leading" constant="20" id="LIn-BG-rxO"/>
-                                                    <constraint firstAttribute="trailing" secondItem="2Yu-Za-cRH" secondAttribute="trailing" constant="20" id="Mpc-rh-zkw"/>
+                                                    <constraint firstItem="2Yu-Za-cRH" firstAttribute="leading" secondItem="YTL-1v-hEe" secondAttribute="leading" constant="10" id="LIn-BG-rxO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2Yu-Za-cRH" secondAttribute="trailing" constant="10" id="Mpc-rh-zkw"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XLH-9v-mr6">
-                                                <rect key="frame" x="79" y="320" width="256" height="352"/>
+                                                <rect key="frame" x="79" y="255.5" width="256" height="352"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="ZwJ-14-ps1">
                                                         <rect key="frame" x="0.0" y="0.0" width="256" height="104"/>
